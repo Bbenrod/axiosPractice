@@ -1,0 +1,22 @@
+{
+  "name": "axiospractice",
+  "version": "1.0.0",
+  "description": "My first practice using axios library",
+  "main": "scr/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuffinPlease/axiosPractice.git"
+  },
+  "author": "Muffin Please <benjamintec3455@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MuffinPlease/axiosPractice/issues"
+  },
+  "homepage": "https://github.com/MuffinPlease/axiosPractice#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
