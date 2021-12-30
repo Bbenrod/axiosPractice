@@ -1,0 +1,22 @@
+body{
+  /* Text */
+  font-family: 'Roboto Slab', serif;
+  /* Box */
+  margin: 0;
+  padding: 0;
+}
+
+/* Movies */
+.movies{
+  /* Box */
+  padding: 32px;
+  /* Display */
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit,400px);
+  gap: 24px;
+}
+
+.movies img{
+  width: 100%;
+}
