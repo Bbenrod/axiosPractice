@@ -1,6 +1,3 @@
-//Import
-// const axios = require('axios').default;
-
 //Code
 const button = document.querySelector("button");
 const form = document.querySelector("form");
@@ -8,31 +5,51 @@ const div = document.querySelector(".movies");
 
 button.addEventListener('click',() => {
     const value = form[0].value;
-    console.log(value);
+
+    const config = {params: {q: value}};
+    findMovie(config)
+
     form.reset();
 });
 
 
-// Make a request for a user with a given ID
-const axios = require('axios');
-const url = `https://api.tvmaze.com/search/shows?q=chicken`;
-
-async function findMovie(){
+//Fucntions
+async function findMovie(config){
+  const url = `https://api.tvmaze.com/search/shows`;
   try{
-    const response = await axios.get(url);
+    const response = await axios.get(url,config);
     const movies = response.data;
     
-    for(let movie of movies){
-      if(movie.show.image){
-        const name = movie.show.name;
-        const img = movie.show.image.medium;
-        console.log(name,img);
-      }
-    }
+    addMovies(movies);
 
   }catch(e){
     console.error(e);
   }
 }
 
-findMovie();
+function addMovies(movies){
+  //Reset 
+  div.innerHTML = "";
+
+  //Add movies
+  if(movies.length){
+    for(let movie of movies){
+      if(movie.show.image){
+        //Values
+        const name = movie.show.name;
+        const url = movie.show.url;
+        const img = movie.show.image.medium;
+  
+        //Add object
+        div.innerHTML +=
+        `<div class="movies_movie">
+        <a href="${url}"> <img src="${img}" alt="${name}">
+        </a>
+        <p>${name}</p>
+        </div>`;
+      }
+    }
+  }else{
+    console.log(`No found`);
+  }
+}
