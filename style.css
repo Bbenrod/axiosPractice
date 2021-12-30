@@ -2,12 +2,15 @@ body{
   /* Text */
   font-family: 'Roboto Slab', serif;
   /* Box */
-  margin: 0;
+  margin: 16px;
   padding: 0;
 }
 
 /* Movies */
 .movies{
+  /* Text */
+  text-align: center;
+  font-weight: 700;
   /* Box */
   padding: 32px;
   /* Display */
@@ -25,7 +28,5 @@ body{
   /* Display */
   display: flex;
   flex-direction: column;
-  /* Text */
-  text-align: center;
-  font-weight: 700;
+
 }

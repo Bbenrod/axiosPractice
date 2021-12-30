@@ -50,6 +50,10 @@ function addMovies(movies){
       }
     }
   }else{
-    console.log(`No found`);
+    div.innerHTML +=
+    `<div>
+    <img src="src/images/error.svg" alt="Error">
+    <p>Oops! We can't find anything related</p>
+    </div>`
   }
 }
