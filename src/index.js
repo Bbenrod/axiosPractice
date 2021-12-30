@@ -14,18 +14,25 @@ button.addEventListener('click',() => {
 
 
 // Make a request for a user with a given ID
-const axios = require('../axios');
+const axios = require('axios');
+const url = `https://api.tvmaze.com/search/shows?q=chicken`;
 
-// Make a request for a user with a given ID
-axios.get('/user?ID=12345')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
+async function findMovie(){
+  try{
+    const response = await axios.get(url);
+    const movies = response.data;
+    
+    for(let movie of movies){
+      if(movie.show.image){
+        const name = movie.show.name;
+        const img = movie.show.image.medium;
+        console.log(name,img);
+      }
+    }
+
+  }catch(e){
+    console.error(e);
+  }
+}
+
+findMovie();
